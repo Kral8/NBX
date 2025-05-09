@@ -11,15 +11,9 @@
       color: #ffd700;
       text-decoration: none;
     }
+
     footer p a:hover {
       text-decoration: underline;
-    }
-    .swap iframe {
-      width: 100%;
-      height: 600px;
-      border: none;
-      border-radius: 16px;
-      box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
     }
   </style>
 </head>
@@ -60,14 +54,66 @@
     </ul>
   </section>
 
-  <section class="swap">
-    <h2>Buy NBX</h2>
-    <iframe src="https://dapp.quickswap.exchange/#/swap?outputCurrency=0x5F345C3F27f187800c4F4303C7f058cb61B0d220" allow="clipboard-write; clipboard-read; web-share"></iframe>
+  <section class="buy-nbx" style="padding: 40px; background-color: #0a0a23; color: #fff; font-family: 'Poppins', sans-serif;">
+    <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">Buy NBX Token</h2>
+
+    <div style="max-width: 800px; margin: 0 auto 30px auto; background-color: #14142b; padding: 20px; border-radius: 10px;">
+      <h3 style="margin-top: 0;">How to Buy NBX</h3>
+      <ol style="padding-left: 20px;">
+        <li>Connect your wallet (e.g. MetaMask)</li>
+        <li>Click “Swap NBX” below</li>
+        <li>If prompted, approve NBX token</li>
+        <li>Swap ETH or POL to NBX</li>
+      </ol>
+      <p style="margin-top: 15px;">NBX Contract Address:
+        <code style="background: #1e1e3f; padding: 3px 6px; border-radius: 5px;">0x5F345C3F27f187800c4F4303C7f058cb61B0d220</code>
+        <button onclick="navigator.clipboard.writeText('0x5F345C3F27f187800c4F4303C7f058cb61B0d220')" style="margin-left: 10px; background: #ffd700; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">📋 Copy</button>
+      </p>
+      <button onclick="addToken()" style="margin-top: 10px; background: #ffd700; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">➕ Add NBX to MetaMask</button>
+    </div>
+
+    <div style="max-width: 900px; height: 600px; margin: 0 auto; border: 2px solid #ffd700; border-radius: 12px; overflow: hidden;">
+      <iframe
+        src="https://dapp.quickswap.exchange/#/swap?inputCurrency=ETH&outputCurrency=0x5F345C3F27f187800c4F4303C7f058cb61B0d220&chain=polygon"
+        width="100%"
+        height="100%"
+        style="border: 0;"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 NebulaX. All rights reserved.</p>
     <p>📩 Contact us: <a href="mailto:nebulaxnbx@hotmail.com">nebulaxnbx@hotmail.com</a></p>
   </footer>
+
+  <script>
+    async function addToken() {
+      try {
+        const wasAdded = await window.ethereum.request({
+          method: 'wallet_watchAsset',
+          params: {
+            type: 'ERC20',
+            options: {
+              address: '0x5F345C3F27f187800c4F4303C7f058cb61B0d220',
+              symbol: 'NBX',
+              decimals: 18,
+              image: 'images/logo.png',
+            },
+          },
+        });
+
+        if (wasAdded) {
+          alert('✅ NBX token was added to your wallet!');
+        } else {
+          alert('❌ NBX token not added.');
+        }
+      } catch (error) {
+        console.error('Error adding token:', error);
+        alert('⚠️ Please connect MetaMask wallet first.');
+      }
+    }
+  </script>
 </body>
 </html>
