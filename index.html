@@ -58,27 +58,37 @@
     <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">Buy NBX Token</h2>
 
     <div style="max-width: 800px; margin: 0 auto 30px auto; background-color: #14142b; padding: 20px; border-radius: 10px;">
-      <h3 style="margin-top: 0;">How to Buy NBX</h3>
+      <h3 style="margin-top: 0;">How to Buy NBX (Polygon & BNB)</h3>
       <ol style="padding-left: 20px;">
         <li>Connect your wallet (e.g. MetaMask)</li>
+        <li>Choose network: Polygon or BNB Smart Chain</li>
         <li>Click “Swap NBX” below</li>
-        <li>If prompted, approve NBX token</li>
-        <li>Swap ETH or POL to NBX</li>
+        <li>Approve NBX token if needed</li>
+        <li>Swap ETH / POL / BNB to NBX</li>
       </ol>
-      <p style="margin-top: 15px;">NBX Contract Address:
-        <code style="background: #1e1e3f; padding: 3px 6px; border-radius: 5px;">0x5F345C3F27f187800c4F4303C7f058cb61B0d220</code>
-        <button onclick="navigator.clipboard.writeText('0x5F345C3F27f187800c4F4303C7f058cb61B0d220')" style="margin-left: 10px; background: #ffd700; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">📋 Copy</button>
-      </p>
-      <button onclick="addToken()" style="margin-top: 10px; background: #ffd700; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer;">➕ Add NBX to MetaMask</button>
+      <p style="margin-top: 15px;">NBX Contract Addresses:</p>
+      <ul>
+        <li>Polygon: <code style="background: #1e1e3f; padding: 3px 6px; border-radius: 5px;">0x5F345C3F27f187800c4F4303C7f058cb61B0d220</code></li>
+        <li>BNB Smart Chain: <code style="background: #1e1e3f; padding: 3px 6px; border-radius: 5px;">0xECd3937CFC6fb75B27b823ff923086bE52411dB8</code></li>
+      </ul>
     </div>
 
-    <div style="max-width: 900px; height: 600px; margin: 0 auto; border: 2px solid #ffd700; border-radius: 12px; overflow: hidden;">
+    <div style="max-width: 900px; height: 600px; margin: 0 auto 30px auto; border: 2px solid #ffd700; border-radius: 12px; overflow: hidden;">
       <iframe
         src="https://dapp.quickswap.exchange/#/swap?inputCurrency=ETH&outputCurrency=0x5F345C3F27f187800c4F4303C7f058cb61B0d220&chain=polygon"
         width="100%"
         height="100%"
         style="border: 0;"
         allow="clipboard-write"
+      ></iframe>
+    </div>
+
+    <div style="max-width: 900px; height: 650px; margin: 0 auto; border: 2px solid #ffd700; border-radius: 12px; overflow: hidden;">
+      <iframe
+        src="https://pancakeswap.finance/swap?outputCurrency=0xECd3937CFC6fb75B27b823ff923086bE52411dB8&chain=bsc"
+        width="100%"
+        height="100%"
+        style="border: none;"
       ></iframe>
     </div>
   </section>
