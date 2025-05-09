@@ -4,178 +4,156 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>NebulaX (NBX)</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
+      margin: 0;
       font-family: 'Poppins', sans-serif;
-      background-color: #0a0a0a;
-      color: #ffd700;
-      padding: 0 20px;
+      background-color: #1f1f1f;
+      color: #f0f0f0;
     }
 
-    header, section, footer {
-      max-width: 1200px;
-      margin: auto;
-      padding: 30px 0;
+    header.hero {
       text-align: center;
+      padding: 40px 20px;
     }
 
     .logo {
       width: 100px;
-      margin-bottom: 20px;
     }
 
     .slogan {
       font-size: 1.2rem;
-      margin-bottom: 20px;
+      margin-top: 10px;
+      color: #cccccc;
     }
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-
-    .btn {
+    .buttons .btn {
+      display: inline-block;
+      margin: 10px 10px;
       padding: 10px 20px;
-      background: transparent;
-      color: #ffd700;
-      text-decoration: none;
-      border: 2px solid #ffd700;
+      background-color: #333;
+      color: #f0f0f0;
+      border: 1px solid #555;
       border-radius: 8px;
-      font-weight: bold;
+      text-decoration: none;
       transition: 0.3s;
     }
 
-    .btn:hover {
-      background-color: #ffd700;
-      color: #000;
+    .buttons .btn:hover {
+      background-color: #555;
     }
 
-    h1, h2, h3 {
-      color: #ffd700;
-    }
-
-    ul, ol {
-      list-style: none;
-      padding: 0;
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
       margin: 0 auto;
-      text-align: left;
-      max-width: 600px;
     }
 
-    ul li, ol li {
+    h2 {
+      color: #ffffff;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    ul li {
       margin-bottom: 10px;
     }
 
-    code {
-      background: #1c1c1c;
-      padding: 4px 8px;
-      border-radius: 5px;
-      display: inline-block;
+    .buy-nbx {
+      background-color: #2a2a2a;
       color: #fff;
+      border-radius: 12px;
+      padding: 40px 20px;
     }
 
-    button.copy-btn {
-      background: transparent;
-      color: #ffd700;
-      border: 2px solid #ffd700;
+    .buy-nbx code {
+      background: #1e1e3f;
+      padding: 3px 6px;
       border-radius: 5px;
-      padding: 5px 10px;
-      cursor: pointer;
-      margin-left: 10px;
+      font-size: 0.95em;
     }
 
-    button.copy-btn:hover {
-      background: #ffd700;
-      color: #000;
+    .copy-button {
+      margin-left: 10px;
+      padding: 4px 10px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .copy-button:hover {
+      background-color: #666;
     }
 
     footer {
       text-align: center;
       padding: 20px;
-      font-size: 0.9rem;
-      color: #888;
+      background-color: #1a1a1a;
     }
 
-    footer a {
-      color: #ffd700;
+    footer p a {
+      color: #a0d8ff;
       text-decoration: none;
     }
 
-    #language-selector {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      z-index: 999;
-      padding: 6px;
-      border-radius: 6px;
-      background: #1c1c1c;
-      color: #ffd700;
-      border: 1px solid #ffd700;
+    footer p a:hover {
+      text-decoration: underline;
     }
 
-    iframe {
-      width: 100%;
-      height: 600px;
+    .lang-switcher {
+      text-align: right;
+      margin: 10px 20px 0 0;
+    }
+
+    .lang-switcher button {
+      margin-left: 10px;
+      background-color: #333;
+      color: #fff;
       border: none;
-      border-radius: 12px;
-      margin-top: 20px;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      .logo {
-        width: 80px;
-      }
-
-      .slogan {
-        font-size: 1rem;
-      }
-
-      .btn {
-        padding: 8px 16px;
-        font-size: 0.9rem;
-      }
-
-      iframe {
-        height: 400px;
+    @media screen and (max-width: 600px) {
+      .buttons .btn {
+        display: block;
+        margin: 10px auto;
+        width: 80%;
       }
     }
   </style>
 </head>
 <body>
+  <div class="lang-switcher">
+    <button onclick="setLanguage('en')">EN</button>
+    <button onclick="setLanguage('ru')">RU</button>
+  </div>
 
-  <select id="language-selector" onchange="switchLanguage()">
-    <option value="en">English</option>
-    <option value="ru">Русский</option>
-  </select>
-
-  <header>
-    <img src="images/logo.png" alt="NBX Logo" class="logo">
+  <header class="hero">
+    <img src="images/logo.png" alt="NBX Logo" class="logo"/>
     <h1>NebulaX (NBX)</h1>
-    <p class="slogan" data-i18n="slogan">Powering the decentralized future</p>
+    <p class="slogan">Powering the decentralized future</p>
     <div class="buttons">
       <a href="Whitepaper.pdf" target="_blank" class="btn">Whitepaper</a>
-      <a href="https://t.me/NBX_NebulaX" target="_blank" class="btn" data-i18n="news">Official News</a>
-      <a href="https://t.me/+TjxAU3GWNOZmYjZi" target="_blank" class="btn" data-i18n="join">Join Telegram Group</a>
+      <a href="https://t.me/NBX_NebulaX" target="_blank" class="btn">Official News</a>
+      <a href="https://t.me/+TjxAU3GWNOZmYjZi" target="_blank" class="btn">Join Telegram Group</a>
     </div>
   </header>
 
-  <section>
-    <h2 data-i18n="about-title">About NBX</h2>
-    <p data-i18n="about-text">NebulaX (NBX) is a next-generation decentralized token aimed at powering a new era of Web3 applications, gaming, and AI-driven blockchain automation.</p>
+  <section class="about" id="about">
+    <h2>About NBX</h2>
+    <p>NebulaX (NBX) is a next-generation decentralized token aimed at powering a new era of Web3 applications, gaming, and AI-driven blockchain automation.</p>
   </section>
 
-  <section>
-    <h2 data-i18n="tokenomics">Tokenomics</h2>
+  <section class="tokenomics" id="tokenomics">
+    <h2>Tokenomics</h2>
     <ul>
       <li><span>50%</span> - Community</li>
       <li><span>25%</span> - Team</li>
@@ -184,8 +162,8 @@
     </ul>
   </section>
 
-  <section>
-    <h2 data-i18n="roadmap">Roadmap</h2>
+  <section class="roadmap" id="roadmap">
+    <h2>Roadmap</h2>
     <ul>
       <li><strong>Q2 2025:</strong> Concept, logo, domain</li>
       <li><strong>Q3 2025:</strong> Telegram bot development, community launch</li>
@@ -194,94 +172,73 @@
     </ul>
   </section>
 
-  <section>
-    <h2 data-i18n="buy-title">Buy NBX Token</h2>
-    <div>
-      <h3 data-i18n="how-to-buy">How to Buy NBX (Polygon)</h3>
+  <section class="buy-nbx" id="buy">
+    <h2 style="text-align: center;">Buy NBX Token</h2>
+
+    <div style="background-color: #1f1f1f; padding: 20px; border-radius: 10px;">
+      <h3 style="margin-top: 0;">How to Buy NBX (Polygon)</h3>
       <ol>
-        <li data-i18n="step1">Connect your wallet (e.g. MetaMask)</li>
-        <li data-i18n="step2">Choose network: Polygon</li>
-        <li data-i18n="step3">Click “Swap NBX” below</li>
-        <li data-i18n="step4">Approve NBX token if needed</li>
-        <li data-i18n="step5">Swap ETH / POL to NBX</li>
+        <li>Connect your wallet (e.g. MetaMask)</li>
+        <li>Choose network: Polygon</li>
+        <li>Click “Swap NBX” below</li>
+        <li>Approve NBX token if needed</li>
+        <li>Swap ETH / POL to NBX</li>
       </ol>
-      <p data-i18n="contract-label">NBX Contract Address:</p>
-      <code id="nbx-address">0x5F345C3F27f187800c4F4303C7f058cb61B0d220</code>
-      <button class="copy-btn" onclick="copyAddress()" data-i18n="copy">📋 Copy</button>
+      <p style="margin-top: 15px;">NBX Contract Address:</p>
+      <div>
+        <code id="nbx-address">0x5F345C3F27f187800c4F4303C7f058cb61B0d220</code>
+        <button class="copy-button" onclick="copyAddress()">Copy</button>
+      </div>
     </div>
 
-    <iframe src="https://dapp.quickswap.exchange/#/swap?inputCurrency=ETH&outputCurrency=0x5F345C3F27f187800c4F4303C7f058cb61B0d220&chain=polygon" allow="clipboard-write"></iframe>
+    <div style="margin-top: 30px; height: 600px; border: 2px solid #444; border-radius: 12px; overflow: hidden;">
+      <iframe
+        src="https://dapp.quickswap.exchange/#/swap?inputCurrency=ETH&outputCurrency=0x5F345C3F27f187800c4F4303C7f058cb61B0d220&chain=polygon"
+        width="100%"
+        height="100%"
+        style="border: 0;"
+        allow="clipboard-write"
+      ></iframe>
+    </div>
   </section>
 
   <footer>
     <p>&copy; 2025 NebulaX. All rights reserved.</p>
-    <p>📩 Contact: <a href="mailto:nebulaxnbx@hotmail.com">nebulaxnbx@hotmail.com</a></p>
+    <p>📩 Contact us: <a href="mailto:nebulaxnbx@hotmail.com">nebulaxnbx@hotmail.com</a></p>
   </footer>
 
   <script>
     function copyAddress() {
-      const address = document.getElementById("nbx-address").textContent;
-      navigator.clipboard.writeText(address)
-        .then(() => alert("✅ Address copied!"))
-        .catch(() => alert("❌ Failed to copy address."));
-    }
-
-    const translations = {
-      en: {
-        "slogan": "Powering the decentralized future",
-        "news": "Official News",
-        "join": "Join Telegram Group",
-        "about-title": "About NBX",
-        "about-text": "NebulaX (NBX) is a next-generation decentralized token aimed at powering a new era of Web3 applications, gaming, and AI-driven blockchain automation.",
-        "tokenomics": "Tokenomics",
-        "roadmap": "Roadmap",
-        "buy-title": "Buy NBX Token",
-        "how-to-buy": "How to Buy NBX (Polygon)",
-        "step1": "Connect your wallet (e.g. MetaMask)",
-        "step2": "Choose network: Polygon",
-        "step3": "Click “Swap NBX” below",
-        "step4": "Approve NBX token if needed",
-        "step5": "Swap ETH / POL to NBX",
-        "contract-label": "NBX Contract Address:",
-        "copy": "📋 Copy"
-      },
-      ru: {
-        "slogan": "Энергия децентрализованного будущего",
-        "news": "Официальные новости",
-        "join": "Присоединиться к группе",
-        "about-title": "О NBX",
-        "about-text": "NebulaX (NBX) — это токен нового поколения для Web3-приложений, игр и автоматизации блокчейна с ИИ.",
-        "tokenomics": "Токеномика",
-        "roadmap": "Дорожная карта",
-        "buy-title": "Купить NBX токен",
-        "how-to-buy": "Как купить NBX (Polygon)",
-        "step1": "Подключите кошелёк (например, MetaMask)",
-        "step2": "Выберите сеть: Polygon",
-        "step3": "Нажмите «Swap NBX» ниже",
-        "step4": "Одобрите токен NBX при необходимости",
-        "step5": "Обменяйте ETH / POL на NBX",
-        "contract-label": "Адрес контракта NBX:",
-        "copy": "📋 Копировать"
-      }
-    };
-
-    function switchLanguage(lang) {
-      const selectedLang = lang || document.getElementById("language-selector").value;
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (translations[selectedLang][key]) {
-          el.textContent = translations[selectedLang][key];
-        }
+      const address = document.getElementById('nbx-address').textContent;
+      navigator.clipboard.writeText(address).then(() => {
+        alert('✅ Address copied to clipboard!');
       });
-      localStorage.setItem("language", selectedLang);
-      document.getElementById("language-selector").value = selectedLang;
     }
 
-    document.addEventListener("DOMContentLoaded", () => {
-      const savedLang = localStorage.getItem("language");
-      const browserLang = navigator.language.startsWith("ru") ? "ru" : "en";
-      switchLanguage(savedLang || browserLang);
-    });
+    function setLanguage(lang) {
+      const elements = {
+        en: {
+          about: "NebulaX (NBX) is a next-generation decentralized token aimed at powering a new era of Web3 applications, gaming, and AI-driven blockchain automation.",
+          roadmap: ["Concept, logo, domain", "Telegram bot development, community launch", "Token launch, DEX listing, bot release", "Marketing campaign, partnerships, expansion"],
+          headings: ["About NBX", "Tokenomics", "Roadmap", "Buy NBX Token"]
+        },
+        ru: {
+          about: "NebulaX (NBX) — это токен нового поколения, предназначенный для поддержки Web3-приложений, игровой индустрии и автоматизации блокчейна с использованием ИИ.",
+          roadmap: ["Концепт, логотип, домен", "Разработка Telegram-бота, запуск сообщества", "Запуск токена, листинг на DEX, выпуск бота", "Маркетинговая кампания, партнёрства, расширение"],
+          headings: ["О NBX", "Токеномика", "Дорожная карта", "Купить NBX Token"]
+        }
+      };
+
+      const content = elements[lang];
+      document.querySelector('#about p').textContent = content.about;
+      document.querySelectorAll('#roadmap li').forEach((el, i) => {
+        el.innerHTML = `<strong>${["Q2 2025", "Q3 2025", "Q4 2025", "Q1 2026"][i]}:</strong> ${content.roadmap[i]}`;
+      });
+      document.querySelectorAll('section h2')[0].textContent = content.headings[0];
+      document.querySelectorAll('section h2')[1].textContent = content.headings[1];
+      document.querySelectorAll('section h2')[2].textContent = content.headings[2];
+      document.querySelectorAll('section h2')[3].textContent = content.headings[3];
+    }
   </script>
 </body>
 </html>
