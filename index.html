@@ -14,8 +14,8 @@
 
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #0a0a23;
-      color: #fff;
+      background-color: #0a0a0a;
+      color: #ffd700;
       padding: 0 20px;
     }
 
@@ -46,15 +46,22 @@
 
     .btn {
       padding: 10px 20px;
-      background: #ffd700;
-      color: #000;
+      background: transparent;
+      color: #ffd700;
       text-decoration: none;
+      border: 2px solid #ffd700;
       border-radius: 8px;
       font-weight: bold;
+      transition: 0.3s;
     }
 
-    h2 {
-      margin-bottom: 15px;
+    .btn:hover {
+      background-color: #ffd700;
+      color: #000;
+    }
+
+    h1, h2, h3 {
+      color: #ffd700;
     }
 
     ul, ol {
@@ -70,25 +77,33 @@
     }
 
     code {
-      background: #1e1e3f;
+      background: #1c1c1c;
       padding: 4px 8px;
       border-radius: 5px;
       display: inline-block;
+      color: #fff;
     }
 
     button.copy-btn {
-      background: #ffd700;
-      border: none;
+      background: transparent;
+      color: #ffd700;
+      border: 2px solid #ffd700;
       border-radius: 5px;
       padding: 5px 10px;
       cursor: pointer;
       margin-left: 10px;
     }
 
+    button.copy-btn:hover {
+      background: #ffd700;
+      color: #000;
+    }
+
     footer {
       text-align: center;
       padding: 20px;
       font-size: 0.9rem;
+      color: #888;
     }
 
     footer a {
@@ -103,6 +118,9 @@
       z-index: 999;
       padding: 6px;
       border-radius: 6px;
+      background: #1c1c1c;
+      color: #ffd700;
+      border: 1px solid #ffd700;
     }
 
     iframe {
