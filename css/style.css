@@ -130,4 +130,8 @@ footer {
     padding: 10px 18px;
     font-size: 0.9rem;
   }
+
+  section {
+    padding: 40px 10px;
+  }
 }
